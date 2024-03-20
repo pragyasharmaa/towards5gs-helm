@@ -46,6 +46,7 @@ data:
     #!/bin/sh
 
     ### Implement networking rules
+    echo 1 > /proc/sys/net/ipv4/ip_forward
     iptables -A FORWARD -j ACCEPT
     iptables -t nat -A POSTROUTING -s {{ $.Values.global.uesubnet }} -o n6 -j MASQUERADE  # route traffic comming from the UE SUBNET to the interface N6
     echo "1200 n6if" >> /etc/iproute2/rt_tables # create a routing table for the interface N6

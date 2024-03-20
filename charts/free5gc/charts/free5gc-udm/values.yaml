@@ -42,7 +42,7 @@ udm:
   replicaCount: 1
   image:
     name: towards5gs/free5gc-udm
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
   service:
     type: ClusterIP
     port: 80
@@ -109,5 +109,5 @@ udm:
 
     logger: # log output setting
       enable: true # true or false
-      level: info # how detailed to output, value: trace, debug, info, warn, error, fatal, panic
+      level: trace # how detailed to output, value: trace, debug, info, warn, error, fatal, panic
       reportCaller: false # enable the caller report or not, value: true or false
